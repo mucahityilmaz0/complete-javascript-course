@@ -81,7 +81,7 @@ x--;
 console.log(x);
 
 // comparison operators
-console.log(ageJonas > ageSarah); // >, <, >=, <= 
+console.log(ageJonas > ageSarah); // >, <, >=, <=
 
 const now = 2023;
 let ageJonas = now - 1996;
@@ -113,7 +113,7 @@ console.log("String with \n\
 multiple \n\
 lines");
 
-console.log(`String with 
+console.log(`String with
 multiple
 lines`);
 
@@ -181,4 +181,31 @@ if (favourite === 27) {
 }
 
 if (favourite !== 27) console.log('Why not 27?');
+
+
+const hasDriverLicense = true;
+const hasGoodVision = true;
+
+console.log(hasDriverLicense && hasGoodVision);
+console.log(hasDriverLicense || hasGoodVision);
+console.log(!hasDriverLicense);
+
+const shouldDrive = hasDriverLicense && hasGoodVision;
+
+// if (shouldDrive) {
+//     console.log('sarah is able to drive!');
+// } else {
+//     console.log('someone else should drive..');
+// }
+
+const isTired = true;
+
+console.log(hasDriverLicense && hasGoodVision && isTired);
+
+if (hasDriverLicense && hasGoodVision && !isTired) {
+    console.log('sarah is able to drive!');
+} else {
+    console.log('someone else should drive..');
+}
+
 */
