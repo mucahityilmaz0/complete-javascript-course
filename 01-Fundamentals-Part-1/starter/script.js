@@ -274,4 +274,17 @@ if (day === 'monday') {
 } else {
     console.log('not a valid day!');
 }
+
+
+3 + 4
+1991
+true && false && !false
+
+if (27 > 10) {
+    const str = '27 is bigger'
+}
+
+const me = 'Mucahit';
+console.log(`I'm ${2023 - 1996} years old ${me}`);
+
 */
