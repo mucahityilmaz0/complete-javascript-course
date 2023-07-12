@@ -158,4 +158,27 @@ console.log('23' / '2');
 let n = '1' + 1;
 n = n - 1;
 console.log(n);
-*/ 
+
+
+const age = '18';
+if (age === 18) console.log('you just became an adult (strict)');
+
+if (age == 18) console.log('you just became an adult (loose)');
+
+const favourite = Number(prompt("what's your favourite number?"));
+
+console.log(favourite);
+console.log(typeof favourite);
+
+if (favourite === 27) {
+    console.log('cool! 27 is an amazing');
+} else if (favourite === 7) {
+    console.log('7 is also a cool number');
+} else if (favourite === 9) {
+    console.log('9 is also a cool number');
+} else {
+    console.log('number is not 27 or 7 or 9');
+}
+
+if (favourite !== 27) console.log('Why not 27?');
+*/
