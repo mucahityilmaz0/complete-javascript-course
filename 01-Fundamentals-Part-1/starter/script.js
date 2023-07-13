@@ -287,7 +287,7 @@ if (27 > 10) {
 const me = 'Mucahit';
 console.log(`I'm ${2023 - 1996} years old ${me}`);
 
-*/
+
 
 const age = 27;
 //age >= 18 ? console.log(' I like to drink wine') : console.log(' I like to drink water');
@@ -305,3 +305,5 @@ if (age >= 18) {
 console.log(drink2);
 
 console.log(`I like to drink ${age >= 18 ? 'wine' : 'water'}`);
+*/
+
