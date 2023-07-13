@@ -276,9 +276,9 @@ if (day === 'monday') {
 }
 
 
-3 + 4
-1991
-true && false && !false
+// 3 + 4
+// 1991
+// true && false && !false
 
 if (27 > 10) {
     const str = '27 is bigger'
@@ -288,3 +288,20 @@ const me = 'Mucahit';
 console.log(`I'm ${2023 - 1996} years old ${me}`);
 
 */
+
+const age = 27;
+//age >= 18 ? console.log(' I like to drink wine') : console.log(' I like to drink water');
+
+const drink = age >= 18 ? 'wine' : 'water';
+
+console.log(drink);
+
+let drink2;
+if (age >= 18) {
+    drink2 = 'wine';
+} else {
+    drink2 = 'water';
+}
+console.log(drink2);
+
+console.log(`I like to drink ${age >= 18 ? 'wine' : 'water'}`);
