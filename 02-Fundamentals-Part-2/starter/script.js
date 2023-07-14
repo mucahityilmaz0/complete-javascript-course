@@ -185,6 +185,41 @@ const jonas = {
     age: 2023 - 1996,
     job: 'Student',
     friends: ['Michael', 'Peter', 'Steven']
-}
+};
 
 */
+
+const jonas = {
+    firstName: 'Jonas',
+    lastName: 'Scmedtmann',
+    age: 2023 - 1996,
+    job: 'Student',
+    friends: ['Michael', 'Peter', 'Steven']
+};
+console.log(jonas);
+
+console.log(jonas.lastName);
+console.log(jonas['lastName']);
+
+const nameKey = 'Name';
+console.log(jonas['first' + nameKey]);
+console.log(jonas['last' + nameKey]);
+
+//console.log(jonas.'last'+ nameKey);
+
+const interestedIn = prompt('What do you want to know about Jonas? Choose between firtName, lastName, age, job, and friends');
+
+if (jonas[interestedIn]) {
+    console.log(jonas[interestedIn]);
+} else {
+    console.log('Wrong request! Choose between firtName, lastName, age, job, and friends');
+}
+
+jonas.location = ' Portugal';
+jonas['twitter'] = '@asdsd';
+console.log(jonas);
+
+//Challenge
+// "Jonas has 3 friends, and his best friend is called Michael"
+
+console.log(`${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}`);
