@@ -187,7 +187,6 @@ const jonas = {
     friends: ['Michael', 'Peter', 'Steven']
 };
 
-*/
 
 const jonas = {
     firstName: 'Jonas',
@@ -223,3 +222,38 @@ console.log(jonas);
 // "Jonas has 3 friends, and his best friend is called Michael"
 
 console.log(`${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}`);
+
+
+const mucahit = {
+    firstName: 'Mucahit',
+    lastName: 'Yılmaz',
+    birthYear: 1996,
+    job: 'Student',
+    friends: ['Michael', 'Peter', 'Steven'],
+    hasDriverLicense: true,
+
+    // calcAge: function (birthYear) {
+    //     return 2023 - birthYear;
+    // }
+
+    // calcAge: function () {
+    //     //console.log(this);
+    //     return 2023 - this.birthYear;
+    // }
+
+    calcAge: function () {
+        this.age = 2023 - this.birthYear;
+        return this.age;
+    }
+};
+
+console.log(mucahit.calcAge());
+console.log(mucahit['calcAge'](1996));
+console.log(mucahit.calcAge(mucahit.birthYear));
+
+
+// Challenge
+// " Mucahit is a 46-year old student, and he has a driver's license"
+
+console.log(`${mucahit.firstName} is a ${mucahit.calcAge()}-year old ${mucahit.job}, and he has ${mucahit.hasDriverLicense === true ? `a ` : `no`}driver's license`);
+*/
