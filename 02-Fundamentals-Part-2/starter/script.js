@@ -257,3 +257,7 @@ console.log(mucahit.calcAge(mucahit.birthYear));
 
 console.log(`${mucahit.firstName} is a ${mucahit.calcAge()}-year old ${mucahit.job}, and he has ${mucahit.hasDriverLicense === true ? `a ` : `no`}driver's license`);
 */
+
+for (let i = 1; i <= 10; i++) {
+    console.log('Lifting weights repetition ' + i);
+}
