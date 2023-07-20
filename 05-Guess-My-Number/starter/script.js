@@ -19,7 +19,7 @@ let score = 20;
 
 document.querySelector('.check').addEventListener('click', function(){
     const guess = Number(document.querySelector('.guess').value);
-    console.log(guess, typeof guess);
+    console.log(guess, typeof guess,document.querySelector('.highscore').textContent);
 
     if (!guess) {
         document.querySelector('.message').textContent = '⛔ No Number!';
@@ -27,6 +27,10 @@ document.querySelector('.check').addEventListener('click', function(){
     }else if(guess === secretNumber){
         document.querySelector('.message').textContent = 'Correct Number!';
         document.querySelector('.number').textContent = secretNumber;
+        
+        if (score>Number(document.querySelector('.highscore').textContent)) {
+            document.querySelector('.highscore').textContent= score;   
+        }
 
         document.querySelector('body').style.backgroundColor = '#60b347';
         document.querySelector('.number').style.width = '30rem';
