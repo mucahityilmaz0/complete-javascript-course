@@ -34,7 +34,6 @@ const firstName = 'Mucahit';
 calcAge(1996);
 //console.log(age);
 //printAge();
-*/
 
 // Variables
 console.log(me);
@@ -77,3 +76,38 @@ const z = 3;
 console.log(x === window.x);
 console.log(y === window.y);
 console.log(z === window.z);
+*/
+
+console.log(this);
+
+const calcAge = function (birtYear) {
+  console.log(2023 - birtYear);
+  console.log(this);
+};
+calcAge(1996);
+
+const calcAgeArrow = birtYear => {
+  console.log(2023 - birtYear);
+  console.log(this);
+};
+calcAgeArrow(1996);
+
+const mucahit = {
+  year: 1996,
+  calcAge: function () {
+    console.log(this);
+    console.log(2023 - this.year);
+  },
+};
+mucahit.calcAge();
+
+const matilda = {
+  year: 2017,
+};
+
+matilda.calcAge = mucahit.calcAge;
+matilda.calcAge();
+
+const f = mucahit.calcAge;
+//f();
+console.log(f);
