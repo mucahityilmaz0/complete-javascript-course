@@ -90,6 +90,16 @@ const game = {
   },
 };
 
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) console.log(item);
+
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
+
+//console.log(...menu.entries());
+
 ///////////////////////////////////////
 // Coding Challenge #1
 
@@ -113,7 +123,6 @@ ternary operator.
 TEST DATA FOR 6: Use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Then, call the function again with players from game.scored
 
 GOOD LUCK 😀
-*/
 
 const [players1, players2] = game.players;
 console.log(players1, players2);
@@ -141,7 +150,7 @@ printGoals(...game.scored);
 team1 < team2 && console.log('Team 1 is more likely to win');
 team1 > team2 && console.log('Team 2 is more likely to win');
 
-/*
+
   const rest1 = {
   name: 'Capri',
   //numGuests: 20,
