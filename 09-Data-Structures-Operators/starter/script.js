@@ -5,7 +5,6 @@ const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
-
 const openingHours = {
   [weekdays[3]]: {
     open: 12,
@@ -15,7 +14,7 @@ const openingHours = {
     open: 11,
     close: 23,
   },
-  [`day-${2 + 5}`]: {
+  [weekdays[5]]: {
     open: 0, // Open 24 hours
     close: 24,
   },
@@ -93,6 +92,33 @@ const game = {
     team2: 6.5,
   },
 };
+
+if (restaurant.openingHours && restaurant.openingHours.mon)
+  console.log(restaurant.openingHours.mon.open);
+
+//WITH optional chanining
+//console.log(restaurant.openingHours.mon.open);
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours?.mon?.open);
+
+//Example
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`On ${day}, we open at ${open}`);
+}
+
+//Methods
+console.log(restaurant.order?.(0, 1) ?? 'method does not exist');
+console.log(restaurant.orderRisotto?.(0, 1) ?? 'method does not exist');
+
+//Array
+const users = [{ name: 'mucahit', email: 'hello@mucahit.io' }];
+//const users = [];
+console.log(users[0]?.name ?? 'User array empty');
+
+if (users.length > 0) console.log(users[0].name);
+else console.log('User array empty');
 
 /* 
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
