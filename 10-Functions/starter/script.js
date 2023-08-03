@@ -191,4 +191,24 @@ function addVATChal(value) {
 
 console.log(addVATChal(100));
 
+
+const runOnce = function () {
+  console.log('This will never run again');
+};
+runOnce();
+//IIFE
+(function () {
+  console.log('This will never run again');
+})();
+
+(() => console.log('This will ALSO never run again'))();
+
+{
+  const isPrivate = 23;
+  var notPrivate = 46;
+}
+
+console.log(notPrivate);
+//console.log(isPrivate);
+
 */
