@@ -69,14 +69,16 @@ function displayMovements(movements) {
           <div class="movements__type movements__type--${type}">${
       i + 1
     } ${type}</div>
-          <div class="movements__value">${mov}€</div>
-        </div>
+    <div class="movements__value">${mov}€</div>
+    </div>
     `;
     containerMovements.insertAdjacentHTML('afterbegin', html);
   });
 }
 
 displayMovements(account1.movements);
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /*
 let arr = ['a', 'b', 'c', 'd', 'e'];
@@ -120,7 +122,6 @@ console.log(arr.slice(-1)[0]);
 console.log(arr.at(-1));
 
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 console.log('----------of for------------');
 for (const movement of movements) {
   if (movement > 0) {
@@ -182,4 +183,35 @@ console.log(currenciesUnique);
 currenciesUnique.forEach(function (value, _, map) {
   console.log(`${value}: ${value}`);
 });
-*/
+
+const eurToUsd = 1.1;
+
+// const movementsUsd = movements.map(function (mov) {
+  //   return mov * eurToUsd;
+  // });
+  
+  const movementsUsd = movements.map(mov => mov * eurToUsd);
+  
+  console.log(movements);
+  console.log(movementsUsd);
+  const movementsUsdFor = [];
+  for (const mov of movements) {
+    movementsUsdFor.push(mov * eurToUsd);
+  }
+  console.log(movementsUsdFor);
+  
+  const movementsDescripttions = movements.map(function (mov, i) {
+    return `Movement ${
+      i + 1
+    }: You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(mov)}`;
+    
+    // if (mov > 0) {
+      //   return `${i + 1} You deposited ${mov}`;
+      // } else {
+        //   return `${i + 1} You withdrew ${Math.abs(mov)}`;
+        // }
+      });
+      
+      console.log(movementsDescripttions);
+      
+      */
