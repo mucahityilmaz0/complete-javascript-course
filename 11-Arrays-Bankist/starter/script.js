@@ -78,6 +78,15 @@ function displayMovements(movements) {
 
 displayMovements(account1.movements);
 
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce(function (acc, mov) {
+    return acc + mov;
+  }, 0);
+  labelBalance.textContent = `${balance} EUR`;
+};
+
+calcDisplayBalance(account1.movements);
+
 const createUserNames = function (accs) {
   accs.forEach(function (acc) {
     accs.userName = acc.owner
@@ -90,8 +99,7 @@ const createUserNames = function (accs) {
   });
   return accs.userName;
 };
-
-// console.log(createUserNames(accounts));
+createUserNames(accounts);
 // console.log(accounts);
 
 /////////////////////////////////////////////////////////
@@ -251,5 +259,30 @@ for (const mov of movements)
   f (mov > 0) depositsFor.push(mov);
   else withdrawals.push(mov);
 console.log(depositsFor, withdrawals);
+
+//accumulator like a snowball
+console.log(movements);
+const balance = movements.reduce(function (acc, cur, i, arr) {
+  console.log(`Iteration ${i}: ${acc}`);
+  return acc + cur;
+}, 0);
+
+console.log(balance);
+
+let balance2 = 0;
+for (const mov of movements) {
+  balance2 += mov;
+}
+console.log(balance2);
+
+// Maximum value
+const max = movements.reduce(function (acc, mov) {
+  if (acc > mov) {
+    return acc;
+  } else {
+    return mov;
+  }
+}, movements[0]);
+console.log(max);
 
 */
