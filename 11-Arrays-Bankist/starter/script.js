@@ -115,7 +115,7 @@ function calcDisplaySummery(movements) {
       return (deposit * 1.2) / 100;
     })
     .filter(function (int, i, arr) {
-      console.log(arr);
+      //console.log(arr);
       return int >= 1;
     })
     .reduce(function (acc, int) {
@@ -127,7 +127,7 @@ calcDisplaySummery(account1.movements);
 
 const createUserNames = function (accs) {
   accs.forEach(function (acc) {
-    accs.userName = acc.owner
+    acc.userName = acc.owner
       .toLowerCase()
       .split(' ')
       .map(function (name) {
@@ -328,15 +328,27 @@ console.log(movements);
 const totalDeposit = movements
 .filter(function (mov) {
   return mov > 0;
-  })
-  .map(function (mov, i, arr) {
-    //console.log(arr);
-    return mov * eurToUsd;
-  })
-  .reduce(function (acc, mov) {
-    return acc + mov;
-  }, 0);
+})
+.map(function (mov, i, arr) {
+  //console.log(arr);
+  return mov * eurToUsd;
+})
+.reduce(function (acc, mov) {
+  return acc + mov;
+}, 0);
   
-  console.log(totalDeposit);
+console.log(totalDeposit);
   
-  */
+  
+const firstWithdrawal = movements.find(mov => mov < 0);
+
+console.log(movements);
+console.log(firstWithdrawal);
+  
+console.log(accounts);
+  
+const account = accounts.find(acc => acc.owner === 'Jessica Davis');
+  
+console.log(account);
+  
+*/
