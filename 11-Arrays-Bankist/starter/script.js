@@ -185,6 +185,25 @@ btnTransfer.addEventListener('click', function (e) {
   }
 });
 
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
+  if (
+    inputCloseUsername?.value === currentAccount?.userName &&
+    Number(inputClosePin?.value) === currentAccount?.pin
+  ) {
+    const index = accounts.findIndex(function (acc) {
+      return acc.userName === currentAccount.userName;
+    });
+    console.log(index);
+    accounts.splice(index, 1);
+
+    containerApp.style.opacity = 0;
+
+    console.log(accounts);
+  }
+  inputCloseUsername.value = inputClosePin.value = '';
+  inputClosePin.blur();
+});
 /////////////////////////////////////////////////////////
 ///LECTURES
 ////////////////////////////////////////////////////////
