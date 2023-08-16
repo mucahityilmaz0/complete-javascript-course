@@ -76,8 +76,6 @@ function displayMovements(movements) {
   });
 }
 
-displayMovements(account1.movements);
-
 const calcDisplayBalance = function (movements) {
   const balance = movements.reduce(function (acc, mov) {
     return acc + mov;
@@ -85,10 +83,8 @@ const calcDisplayBalance = function (movements) {
   labelBalance.textContent = `${balance} €`;
 };
 
-calcDisplayBalance(account1.movements);
-
-function calcDisplaySummery(movements) {
-  const incomes = movements
+function calcDisplaySummery(acc) {
+  const incomes = acc.movements
     .filter(function (mov) {
       return mov > 0;
     })
@@ -97,7 +93,7 @@ function calcDisplaySummery(movements) {
     }, 0);
   labelSumIn.textContent = `${incomes}€`;
 
-  const out = movements
+  const out = acc.movements
     .filter(function (mov) {
       return mov < 0;
     })
@@ -107,12 +103,12 @@ function calcDisplaySummery(movements) {
 
   labelSumOut.textContent = `${Math.abs(out)}€`;
 
-  const interest = movements
+  const interest = acc.movements
     .filter(function (mov) {
       return mov > 0;
     })
     .map(function (deposit) {
-      return (deposit * 1.2) / 100;
+      return (deposit * acc.interestRate) / 100;
     })
     .filter(function (int, i, arr) {
       //console.log(arr);
@@ -123,7 +119,6 @@ function calcDisplaySummery(movements) {
     }, 0);
   labelSumInterest.textContent = `${interest}€`;
 }
-calcDisplaySummery(account1.movements);
 
 const createUserNames = function (accs) {
   accs.forEach(function (acc) {
@@ -352,3 +347,26 @@ const account = accounts.find(acc => acc.owner === 'Jessica Davis');
 console.log(account);
   
 */
+let currentAccount;
+
+btnLogin.addEventListener('click', function (e) {
+  e.preventDefault();
+  currentAccount = accounts.find(
+    acc => acc.userName === inputLoginUsername.value
+  );
+  console.log(currentAccount);
+
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    labelWelcome.textContent = `Welcome back, ${
+      currentAccount.owner.split(' ')[0]
+    }`;
+    containerApp.style.opacity = 100;
+
+    inputLoginUsername.value = inputLoginPin.value = '';
+    inputLoginPin.blur();
+
+    displayMovements(currentAccount.movements);
+    calcDisplayBalance(currentAccount.movements);
+    calcDisplaySummery(currentAccount);
+  }
+});
