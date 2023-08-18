@@ -59,10 +59,16 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-function displayMovements(movements) {
+function displayMovements(movements, sort = false) {
   containerMovements.innerHTML = '';
 
-  movements.forEach(function (mov, i) {
+  const movs = sort
+    ? movements.slice().sort(function (a, b) {
+        return a - b;
+      })
+    : movements;
+
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
     const html = `
     <div class="movements__row">
@@ -219,6 +225,14 @@ btnClose.addEventListener('click', function (e) {
   inputCloseUsername.value = inputClosePin.value = '';
   inputClosePin.blur();
 });
+
+let sorted = false;
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
+});
+
 /////////////////////////////////////////////////////////
 ///LECTURES
 ////////////////////////////////////////////////////////
@@ -483,5 +497,26 @@ const overalBalace2 = accounts
   .flatMap(acc => acc.movements)
   .reduce((acc, mov) => acc + mov, 0);
 console.log(overalBalace2);
+
+
+const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+console.log(owners);
+console.log(owners.sort());
+console.log(owners);
+
+console.log(movements);
+//console.log(movements.sort());
+
+const sortMovementLR = movements.sort(function (a, b) {
+  return a > b ? 1 : -1;
+});
+
+console.log(sortMovementLR);
+
+const sortMovementRL = movements.sort(function (a, b) {
+  return a < b ? 1 : -1;
+});
+
+console.log(sortMovementRL);
 
 */
